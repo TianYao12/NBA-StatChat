@@ -1,0 +1,40 @@
+
+.title {
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 15px;
+}
+  
+.team {
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  border: 2px solid rgb(177, 175, 175);
+}
+
+.team:hover {
+  background-color: rgb(226, 225, 225);
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px 5px 5px;
+}
+
+.teamItem {
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.teamItem p {
+  font-size: 20px;
+}

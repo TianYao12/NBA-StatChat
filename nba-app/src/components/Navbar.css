@@ -1,0 +1,89 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 17px;
+  }
+.outside{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color:black;
+  padding:10px 0 10px 0;
+}
+
+.link{
+  padding:0;
+  display:flex;
+  align-items: center;
+}
+
+.link img{
+  height: 50px;
+  padding:0;
+}
+
+  .main-nav {
+    display: flex;
+    flex:2;
+  }
+  
+  .main-nav a {
+    color: white;
+    font-size: 0.99em;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+  .main-nav a:hover {
+    color: #718daa;
+  }
+  
+  .signin {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 50px;
+  }
+  
+  .signin a {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .signin img {
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .signin .message {
+    position: absolute;
+    right: 100px;
+    z-index: 2;
+    background-color: rgb(71, 71, 71);
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  
+  .signin:hover .message {
+    opacity: 1;
+  }
+  

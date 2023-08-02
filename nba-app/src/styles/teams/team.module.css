@@ -1,0 +1,40 @@
+.underline{
+    margin-bottom:20px
+}
+.underline a {
+    text-decoration: none;
+    color:black
+}
+
+.container{
+    display:flex
+}
+
+.left {
+    background-color: yellow;
+}
+
+.right {
+    background-color: green;
+    flex:1   
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
