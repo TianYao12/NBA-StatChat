@@ -13,29 +13,26 @@ export default function Page() {
   const { team: teamId } = router.query;
 
   useEffect(() => {
-    fetchTeam();
-    fetchPlayers();
+    fetchData();
   }, [teamId]);
 
-  const fetchTeam = async () => {
+  const fetchData = async () => {
     try {
-      const response = await axios.get(`/api/teams/${teamId}`);
-      setTeam(response.data);
+      const response1 = await axios.get(`/api/teams/${teamId}`);
+      setTeam(response1.data);
+
+      const response2 = await axios.get(
+        `/api/teams/roster?team=${encodeURIComponent(response1.data.full_name)}`
+      );
+      setPlayers(response2.data);
+
+      setIsLoading(false);
     } catch (error) {
-      console.error(error);
+      console.error("Error:", error);
+      setIsLoading(false);
     }
   };
 
-  const fetchPlayers = async () => {
-    try {
-      const response = await axios.get("https://www.balldontlie.io/api/v1/players");
-      setPlayers(response.data.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  console.log(players)
   return (
     <>
       <div className={styles.underline}>
@@ -69,18 +66,17 @@ export default function Page() {
                 <tr>
                   <th>PLAYER</th>
                   <th>POSITION</th>
-                  <th>HEIGHT</th>
-                  <th>WEIGHT</th>
                 </tr>
               </thead>
               <tbody>
                 {players.map((player) => (
                   <tr key={player.id}>
-                    <td>{player.first_name} {player.last_name}</td>
+                    <td>
+                      <a href={`../players/${player.id}`}>
+                        {player.first_name} {player.last_name}
+                      </a>
+                    </td>
                     <td>{player.position}</td>
-                    <td>{player.height_feet}'{player.height_inches}"</td>
-                    <td>{player.weight_pounds} lbs</td>
-                    <td>{player.age}</td>
                   </tr>
                 ))}
               </tbody>

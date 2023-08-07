@@ -13,8 +13,13 @@ function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="/games" className="link">
+              Games
+            </Link>
+          </li>
+          <li>
             <Link href="/teams" className="link">
-              Teams{" "}
+              Teams
             </Link>
           </li>
           <li>
@@ -23,18 +28,18 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a href="/compare.js" className="link">
+            <a href="/compare" className="link">
               Compare
             </a>
           </li>
           <li>
-            <a href="/fantasyteam.js" className="link">
+            <a href="/fantasyteam" className="link">
               Fantasy Team
             </a>
           </li>
         </ul>
         <div className="signin">
-          <a href="../signin.js">
+          <a href="/signin">
             <img src="/signin.png" alt="Sign In" />
           </a>
           <div className="message">Sign in</div>

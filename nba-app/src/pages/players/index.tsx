@@ -1,5 +1,4 @@
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../../styles/players.module.css";
 
@@ -7,22 +6,41 @@ interface Player {
   id: number;
   first_name: string;
   last_name: string;
-  weight_pounds: number;
 }
 
 export default function PlayersPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [playerData, setPlayerData] = useState<Player | null>(null);
+  const [playerData, setPlayerData] = useState<Player[] | null>(null);
+  const [stats, setStats] = useState<any>(null);
+
+  useEffect(() => {
+    if (playerData && playerData.length > 0) {
+      fetchStats(playerData[0].id);
+    }
+  }, [playerData]);
+
   const fetchPlayers = async () => {
     try {
-      const response = await axios.get<Player>(
-        `https://www.balldontlie.io/api/v1/players/${searchQuery}`
+      const response = await axios.get<Player[]>(
+        `/api/players/playerapi?player=${searchQuery}`
       );
       setPlayerData(response.data);
     } catch (error) {
       console.error(error);
     }
   };
+
+  const fetchStats = async (id: number) => {
+    try {
+      const response = await axios.get<any>(
+        `https://www.balldontlie.io/api/v1/season_averages?player_ids[]=${id}`
+      );
+      setStats(response.data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   console.log(playerData);
   return (
     <>
@@ -34,7 +52,7 @@ export default function PlayersPage() {
           onChange={(e) => {
             setSearchQuery(e.target.value);
           }}
-          placeholder="Search for a player"
+          placeholder="Search for a player by first name"
           className={styles.searchBar}
         />
         <button onClick={fetchPlayers} className={styles.button}>
@@ -42,19 +60,24 @@ export default function PlayersPage() {
         </button>
       </div>
 
-      {playerData ? (
+      {playerData && stats ? (
         <ul>
           <li>
-            <strong>ID:</strong> {playerData.id}
+            <strong>ID:</strong> {playerData[0].id}
           </li>
           <li>
-            <strong>First Name:</strong> {playerData.first_name}
+            <strong>First Name:</strong> {playerData[0].first_name}
           </li>
           <li>
-            <strong>Last Name:</strong> {playerData.last_name}
+            <strong>Last Name:</strong> {playerData[0].last_name}
           </li>
           <li>
-            <strong>Weight:</strong> {playerData.weight_pounds}
+            <strong>Games Played:</strong>{" "}
+            {stats.games_played === null ? stats.games_played : "No Data"}
+          </li>
+          <li>
+            <strong>pts:</strong>{" "}
+            {stats.pts === null ? stats.pts : "No Data"}
           </li>
         </ul>
       ) : null}
