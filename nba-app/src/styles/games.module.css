@@ -1,27 +1,44 @@
 /* styles.module.css */
 .infoTable {
-    width: 50%;
-    border-collapse: collapse;
-  }
-  
-  .infoTable th, .infoTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .infoTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .infoTable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
+  width: 50%;
+  border-collapse: collapse;
+}
 
-  .row {
-    height: 40px; /* Set the desired height for the rows */
+.infoTable th, .infoTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.infoTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.infoTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.row {
+  height: 40px;
+  transition: transform 0.5s ease; /* Add a transition property for smoother animation */
+}
+
+@keyframes flipAnimation {
+  0% {
+    transform: perspective(800px) rotateX(0);
   }
-  
+  50% {
+    transform: perspective(800px) rotateX(180deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0);
+  }
+}
+
+.row.flip {
+  animation: flipAnimation 1s; /* changed animation time to 2 seconds */
+}
+

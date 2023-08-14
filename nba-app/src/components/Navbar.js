@@ -13,7 +13,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/games" className="link">
+            <Link href="/game3" className="link">
               Games
             </Link>
           </li>
@@ -39,10 +39,10 @@ function Navbar() {
           </li>
         </ul>
         <div className="signin">
-          <a href="/signin">
-            <img src="/signin.png" alt="Sign In" />
+          <a href="/login">
+            <img src="/signin.png" alt="Log In" />
           </a>
-          <div className="message">Sign in</div>
+          <div className="message">Log in</div>
         </div>
       </div>
     </div>
