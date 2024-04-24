@@ -4,6 +4,7 @@ import { registerValidate } from "../../lib/validate";
 import { useRouter } from "next/router";
 import Link from "next/link"
 import { useTranslation } from "react-i18next";
+import { signIn } from "next-auth/react";
 
 interface Submission {
   username: string;
@@ -43,8 +44,23 @@ const Register = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      const data = await response.json(); // parse response JSON
-      if (data) router.push("http://localhost:3000"); // redirect if successful
+      if (response.ok) {
+        // Registration was successful, now sign in the user
+        const signInResponse = await signIn("credentials", {
+          redirect: false, // Ensure that it doesn't automatically redirect
+          email: values.email,
+          password: values.password,
+          callbackUrl: "http://localhost:3000", // Redirect URL after login
+        });
+  
+        if (signInResponse.ok) {
+          router.push(signInResponse.url);
+        } else {
+          console.error("Sign-in after registration failed");
+        }
+      } else {
+        console.error("Registration failed");
+      }
     } else {
       console.log(formik.errors);
     }    

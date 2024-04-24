@@ -264,7 +264,7 @@ export default function Player() {
     <>
       <Link className={styles.link} href="/players">
         {" "}
-        ← Back to players{" "}
+        ← Search for another player{" "}
       </Link>
       <div className={styles.main}>
         <div className={styles.top}>
@@ -287,6 +287,7 @@ export default function Player() {
           id="seasonTypeFilter"
           onChange={(e) => setSelectedSeasonType(e.target.value)}
           value={selectedSeasonType}
+          style={{ width: "120px", marginBottom: "10px" }}
         >
           <option value="Regular Season">Regular Season</option>
           <option value="Playoffs">Playoffs</option>

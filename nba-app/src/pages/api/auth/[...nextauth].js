@@ -24,7 +24,7 @@ export default NextAuth({
     }),
     CredentialsProvider({
       name: "Credentials",
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         // connect to MongoDB and get user with user email
         const mongoClient = await clientPromise;
         const user = await mongoClient

@@ -1,0 +1,38 @@
+.pagination {
+    display:flex;
+    position:absolute;
+    top:650px
+}
+
+.link {
+   color: rgb(101, 26, 148);
+   text-decoration: none;
+   transition: 500ms;
+   border: 1px solid rgb(101, 26, 148); 
+   background-color: rgba(237, 209, 255, 0.902);
+   padding: 4px 8px; 
+   border-radius: 12%;
+   cursor: pointer;
+}
+
+.link:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 200ms;
+    border: 1px solid rgb(101, 26, 148); 
+    background-color: rgba(49, 0, 80, 0.902);
+    padding: 4px 8px; 
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.active {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 200ms;
+    border: 1px solid rgb(101, 26, 148); 
+    background-color: rgba(49, 0, 80, 0.902);
+    padding: 4px 8px; 
+    border-radius: 15%;
+    cursor: pointer;
+}

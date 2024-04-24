@@ -1,11 +1,12 @@
 import axios from "axios";
 import Link from "next/link";
 import styles from "../styles/news.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "react-i18next";
-import i18n from "../../lib/i18n"
+import i18n from "../../lib/i18n";
+import Pagination from "@/components/Pagination";
 
 interface News {
   url: string;
@@ -16,16 +17,33 @@ interface News {
 interface NewsPageProps {
   news: News[];
 }
-// HomePage(news) renders NBA news fetched from Next.js API route and is the default page after authentication 
+
 const HomePage = ({ news }: NewsPageProps) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
   const { t } = useTranslation();
   const { data: session } = useSession();
-  // console.log(session);
-  
+
   useEffect(() => {
-    i18n.changeLanguage('zh');
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) {
+      i18n.changeLanguage(savedLanguage);
+    } else {
+      // If not, set the language based on some default logic
+      const preferredLanguage = navigator.language.split("-")[0];
+      if (preferredLanguage === "zh") {
+        i18n.changeLanguage("zh");
+      } else {
+        i18n.changeLanguage("en"); // Default to English
+      }
+    }
   }, []);
-  
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = news.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <>
       {session ? (
@@ -36,15 +54,14 @@ const HomePage = ({ news }: NewsPageProps) => {
               {session.user?.email}'s NBA {t("news")}
             </h1>
           </div>
-          {/*Grid layout of NBA news */}
           <div className={styles.grid}>
             {news.length > 0 ? (
-              news.map((article) =>
+              currentPosts.map((article) =>
                 article.urlToImage ? (
                   <div className={styles.item} key={article.title}>
                     <Link href={article.url} className={styles.link}>
                       <img src={article.urlToImage} alt={article.title} />
-                      <p style={{fontSize:"1rem"}}>{article.title}</p>
+                      <p style={{ fontSize: "1rem" }}>{article.title}</p>
                     </Link>
                   </div>
                 ) : null
@@ -53,6 +70,11 @@ const HomePage = ({ news }: NewsPageProps) => {
               <h1>Loading...</h1>
             )}
           </div>
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={news.length}
+            paginate={paginate}
+          />
         </>
       ) : (
         <div>
@@ -64,7 +86,6 @@ const HomePage = ({ news }: NewsPageProps) => {
   );
 };
 
-// getServerSideProps(context) renders news at request time as long as user is still in session
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
   const session = await getSession({ req });
@@ -78,7 +99,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   try {
-    // fetches from Next.js API route NBA news
     const response = await axios.get("http://localhost:3000/api/newsget");
     const news = response.data.articles;
 

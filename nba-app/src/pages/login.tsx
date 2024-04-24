@@ -1,5 +1,5 @@
 import styles from "../styles/login.module.css";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
 import loginValidate from "../../lib/validate";
 import { useRouter } from "next/router";
@@ -52,10 +52,8 @@ const Login = () => {
         {t("login")} {t("to")} NBAExplorer
       </h1>
       
-      {/*Form starts */}
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.small}>
-          {/*Email */}
           <input
             className={styles.inputBox}
             placeholder={t("email")}
@@ -69,7 +67,6 @@ const Login = () => {
             <></>
           )}
         </div>
-        {/* Password */}
         <div className={styles.small}>
           <input
             className={styles.inputBox}
@@ -83,11 +80,11 @@ const Login = () => {
             <></>
           )}
         </div>
-
         <button type="submit" className={styles.button}>
           {t("login")}
         </button>
       </form>
+      
       <button className={styles.button} onClick={handleGithubLogIn}>
         {t("login")} {t("using")} Github
       </button>

@@ -35,3 +35,9 @@ body {
     margin-bottom: 10px;
   }
 }
+
+.signout {
+  position: absolute;
+  right: 3.4rem
+}
+

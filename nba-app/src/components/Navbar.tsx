@@ -2,6 +2,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../lib/i18n";
+import { FaSignOutAlt } from "react-icons/fa";
 
 function Navbar() {
   const { t } = useTranslation();
@@ -37,19 +38,12 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className="signin">
-          <Link href="/" onClick={handleTranslation} className="translate">
+          {/* <Link href="/" onClick={handleTranslation} className="translate">
             <strong>{t("translate")}</strong>
-          </Link>
-          <button
-            onClick={handleSignOut}
-            style={{ backgroundColor: "rgba(17, 0, 35, 0.912)" }}
-            className="icon"
-          >
-            <img src="/signin.png" alt="signout" />
+          </Link> */}
+          <button className="signout" onClick={handleSignOut}>
+            <FaSignOutAlt  />
           </button>
-          <div className="message">Sign out</div>
-        </div>
       </div>
     </div>
   );
