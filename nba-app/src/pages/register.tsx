@@ -2,8 +2,7 @@ import styles from "../styles/login.module.css";
 import { useFormik } from "formik";
 import { registerValidate } from "../../lib/validate";
 import { useRouter } from "next/router";
-import Link from "next/link"
-import { useTranslation } from "react-i18next";
+import Link from "next/link";
 import { signIn } from "next-auth/react";
 
 interface Submission {
@@ -12,14 +11,13 @@ interface Submission {
   password: string;
   confirmPassword: string;
 }
-// Register registers a new user 
+// Register registers a new user
 const Register = () => {
-  const { t } = useTranslation();
   const router = useRouter();
 
   /**
-   * Formik calls 'validate' function whenever form values change or on submission 
-   * It returns an object where the keys correspond to form field names, and the values are 
+   * Formik calls 'validate' function whenever form values change or on submission
+   * It returns an object where the keys correspond to form field names, and the values are
    * error messages (or undefined if there are no errors).
    * OnSubmit function is called upon submission of form
    */
@@ -52,8 +50,8 @@ const Register = () => {
           password: values.password,
           callbackUrl: "http://localhost:3000", // Redirect URL after login
         });
-  
-        if (signInResponse.ok) {
+
+        if (signInResponse && signInResponse.ok && signInResponse.url != null) {
           router.push(signInResponse.url);
         } else {
           console.error("Sign-in after registration failed");
@@ -63,17 +61,17 @@ const Register = () => {
       }
     } else {
       console.log(formik.errors);
-    }    
+    }
   }
 
   return (
     <div className={styles.title}>
-      <h1>{t("register")} {t("in")} NBAExplorer</h1>
+      <h1>Register to NBAExplorer</h1>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.small}>
           <input
             className={styles.inputBox}
-            placeholder={t("username")}
+            placeholder="Username"
             type="string"
             {...formik.getFieldProps("username")} // does many props automatically
           />
@@ -87,7 +85,7 @@ const Register = () => {
           {/* Email */}
           <input
             className={styles.inputBox}
-            placeholder={t("email")}
+            placeholder="Email"
             type="email"
             {...formik.getFieldProps("email")}
           />
@@ -97,11 +95,11 @@ const Register = () => {
             <></>
           )}
         </div>
-         {/* Password */}
+        {/* Password */}
         <div className={styles.small}>
           <input
             className={styles.inputBox}
-            placeholder={t("password")}
+            placeholder="Password"
             type="password"
             {...formik.getFieldProps("password")}
           />
@@ -111,11 +109,11 @@ const Register = () => {
             <></>
           )}
         </div>
-         {/* Confirm Password */}
+        {/* Confirm Password */}
         <div className={styles.small}>
           <input
             className={styles.inputBox}
-            placeholder={t("confirm")+ " "+ t("password")}
+            placeholder="Confirm Password"
             type="password"
             {...formik.getFieldProps("confirmPassword")}
           />
@@ -126,11 +124,11 @@ const Register = () => {
           <></>
         )}
         <button type="submit" className={styles.button}>
-          {t("register")}
+          Register
         </button>
         <p className={styles.end}>
-        {t("yes-account")}? <Link href="/login">{t("login")}</Link>
-      </p>
+          Already have an account? <Link href="/login">Login</Link>
+        </p>
       </form>
     </div>
   );

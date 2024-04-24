@@ -4,7 +4,6 @@ import styles from "../styles/news.module.css";
 import { useEffect, useState } from "react";
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
-import { useTranslation } from "react-i18next";
 import i18n from "../../lib/i18n";
 import Pagination from "@/components/Pagination";
 
@@ -21,23 +20,7 @@ interface NewsPageProps {
 const HomePage = ({ news }: NewsPageProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
-  const { t } = useTranslation();
   const { data: session } = useSession();
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage);
-    } else {
-      // If not, set the language based on some default logic
-      const preferredLanguage = navigator.language.split("-")[0];
-      if (preferredLanguage === "zh") {
-        i18n.changeLanguage("zh");
-      } else {
-        i18n.changeLanguage("en"); // Default to English
-      }
-    }
-  }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -51,7 +34,7 @@ const HomePage = ({ news }: NewsPageProps) => {
           <div className={styles.title}>
             <h1>
               {" "}
-              {session.user?.email}'s NBA {t("news")}
+              {session.user?.email}'s NBA News
             </h1>
           </div>
           <div className={styles.grid}>
