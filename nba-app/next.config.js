@@ -9,11 +9,6 @@ module.exports = nextConfig = {
   images: {
     domains: ['*'],
   },
-  i18n: {
-    locales: ['default', 'en', 'zh'],
-    defaultLocale: 'default',
-    localeDetection: false,
-  },
   trailingSlash: true,
 };
 

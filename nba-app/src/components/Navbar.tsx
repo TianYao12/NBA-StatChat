@@ -22,6 +22,9 @@ function Navbar() {
           <li>
             <Link href="/players" className="link">Search for Player</Link>
           </li>
+          <li>
+            <Link href="/chat_page" className="link">Chat</Link>
+          </li>
         </ul>
           {/* <Link href="/" onClick={handleTranslation} className="translate">
             <strong>{t("translate")}</strong>

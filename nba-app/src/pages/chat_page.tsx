@@ -8,8 +8,12 @@ export default function Chat() {
     <div className={styles.main}>
       {messages.length > 0
         ? messages.map((m) => (
-            <div key={m.id} className="whitespace-pre-wrap">
-              {m.role === "user" ? "User: " : "AI: "}
+            <div key={m.id} className={styles.convo}>
+              {m.role === "user" ? (
+                <p className={styles.title}>User: </p>
+              ) : (
+                <p className={styles.title}>AI: </p>
+              )}
               <p>{m.content}</p>
             </div>
           ))
