@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=JEBDfGqrAUA 
 import { useChat } from "ai/react";
 import styles from "../styles/chat.module.css";
 
@@ -23,7 +24,8 @@ export default function Chat() {
         <input
           className={styles.form}
           value={input}
-          placeholder="Ask Anything Basketball?"
+          maxLength={1000}
+          placeholder="Shoot your basketball questions!"
           onChange={handleInputChange}
         />
       </form>
