@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/pagination.module.css";
+import styles from "../../styles/pagination.module.css";
 
 import React from "react";
 interface PaginationProps {

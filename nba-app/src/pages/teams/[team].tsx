@@ -5,19 +5,6 @@ import Image from "next/image";
 import styles from "../../styles/teams/team.module.css";
 import teamMappings from "../../../public/teams.json";
 
-interface PlayerStats {
-  id: number;
-  PLAYER: string;
-  Year: string;
-  Season_type: string;
-  GP: number;
-  MIN: number;
-  FG_PCT: number;
-  PTS: number;
-  AST: number;
-  REB: number;
-}
-
 /**
  * Team() displays the statistics of players playing this team
  * Users can filter players' statistics by year from 2012-13 to 2021-22 and 

@@ -17,8 +17,8 @@ export async function POST(req: Request) {
   }).then((res) => res.json());
 
   const TEMPLATE = `You are a knowledgeable sports person who loves to teach others about basketball. 
-  Given the following sections, answer the questions using only that information. If you are unsure, say "Sorry, I want to provide the
-  most accurate information, and I have not stored the necessary data to answer that question."
+  Given the following sections, answer the questions with the embedded information if possible. If the user question is completely different from
+  your context, say: "Sorry, I don't have enough context to answer that question. I don't have access to enough reliable data, so I will not answer your question :("
   
   Context sections:
   ${JSON.stringify(vectorSearch)}
@@ -35,6 +35,7 @@ export async function POST(req: Request) {
   const llm = new ChatOpenAI({
     modelName: "gpt-3.5-turbo",
     streaming: true,
+    apiKey: process.env.NEXT_OPENAI_API_KEY
   });
 
   llm

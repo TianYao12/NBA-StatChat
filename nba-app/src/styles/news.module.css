@@ -29,8 +29,8 @@
 }
 
 .item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 10px 20px rgba(160, 51, 214, 0.838);
+  transform: translateY(-1px);
+  box-shadow: 0px 10px 20px rgba(221, 176, 243, 0.838);
   /* Add a shadow on hover */
 }
 

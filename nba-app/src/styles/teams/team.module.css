@@ -50,7 +50,10 @@
   .choose {
     padding:3px 8px 3px 8px;
     margin-right: 100px;
-    margin-left:20px
+    margin-left: 20px;
+    border: none;
+    background-color: rgb(242, 210, 245);
+    border-radius: 4px;
   }
 
 .link {

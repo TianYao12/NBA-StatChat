@@ -1,19 +1,9 @@
 import axios from "axios";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../../styles/teams/teams.module.css";
-import { getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
+import TeamCard from "@/components/teams/TeamCard";
+import styles from "../../styles/teams/teams.module.css";
 
-interface Team {
-  name: string;
-  full_name: string;
-  conference: string;
-}
-
-interface TeamPageProps {
-  teams: Team[];
-}
 /**
  TeamPage(teams) displays all NBA teams 
  It calls the Next.js API in the getServerSideProps function to render data at request time
@@ -25,28 +15,7 @@ export default function TeamPage({ teams }: TeamPageProps) {
       <div className={styles.title}>
         <h1>NBA Teams</h1>
       </div>
-      <div className={styles.grid}>
-        {teams ? (
-          teams.map((team) => (
-            <div className={styles.team}>
-              <Link href={`/teams/${team.name}`}> {/* Links to dynamic route with full name of the team */}
-                <Image
-                  src={`/teamlogos/${team.name}.png`}
-                  width={200}
-                  height={200}
-                  alt="Picture of NBA team logo"
-                />
-              </Link>
-              <div className={styles.teamItem}>
-                <p>{team.full_name}</p>
-                <p>{team.conference}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <h1>Loading teams...</h1>
-        )}
-      </div>
+      <TeamCard teams={teams}/>
     </div>
   );
 }

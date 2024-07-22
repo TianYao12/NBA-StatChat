@@ -12,6 +12,7 @@ export async function POST(req: Request) {
 
   const vectorStore = new MongoDBAtlasVectorSearch(
     new OpenAIEmbeddings({
+      apiKey: process.env.OPENAI_API_KEY,
       modelName: 'text-embedding-ada-002',
       stripNewLines: true,
     }), {

@@ -7,6 +7,7 @@ export default function Chat() {
 
   return (
     <div className={styles.main}>
+      <h1>Chat</h1>
       {messages.length > 0
         ? messages.map((m) => (
             <div key={m.id} className={styles.convo}>
@@ -22,7 +23,7 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit}>
         <input
-          className={styles.form}
+          className={styles.input}
           value={input}
           maxLength={1000}
           placeholder="Shoot your basketball questions!"

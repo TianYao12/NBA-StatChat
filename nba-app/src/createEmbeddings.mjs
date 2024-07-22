@@ -5,7 +5,7 @@ import { OpenAIEmbeddings } from "@langchain/openai";
 import { MongoClient } from "mongodb";
 import "dotenv/config";
 
-const client = new MongoClient(process.env.MONGO_LANG_URI || "");
+const client = new MongoClient(process.env.MONGODB_URI || "");
 const dbName = "docs";
 const collectionName = "embeddings";
 const collection = client.db(dbName).collection(collectionName);

@@ -1,21 +1,10 @@
 import axios from "axios";
 import Link from "next/link";
 import styles from "../styles/news.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getSession, useSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
-import i18n from "../../lib/i18n";
-import Pagination from "@/components/Pagination";
-
-interface News {
-  url: string;
-  urlToImage: string;
-  title: string;
-}
-
-interface NewsPageProps {
-  news: News[];
-}
+import Pagination from "@/components/pagination/Pagination";
 
 const HomePage = ({ news }: NewsPageProps) => {
   const [currentPage, setCurrentPage] = useState(1);
