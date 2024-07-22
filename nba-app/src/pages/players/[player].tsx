@@ -287,7 +287,7 @@ export default function Player() {
           id="seasonTypeFilter"
           onChange={(e) => setSelectedSeasonType(e.target.value)}
           value={selectedSeasonType}
-          style={{ width: "120px", marginBottom: "10px" }}
+          className={styles.choose_season_type}
         >
           <option value="Regular Season">Regular Season</option>
           <option value="Playoffs">Playoffs</option>

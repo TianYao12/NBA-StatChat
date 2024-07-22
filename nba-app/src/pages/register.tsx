@@ -66,7 +66,7 @@ const Register = () => {
 
   return (
     <div className={styles.title}>
-      <h1>Register to NBAExplorer</h1>
+      <h1>Register to NBA StatChat</h1>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.small}>
           <input

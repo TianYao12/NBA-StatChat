@@ -134,7 +134,7 @@ export default function Team() {
                   .map((player) => (
                     <tr key={player.id}>
                       <td>
-                        <a href={`/players/${player.PLAYER}`}>
+                        <a href={`/players/${player.PLAYER}`} className={styles.playerLink}>
                           {player.PLAYER}
                         </a>
                       </td>

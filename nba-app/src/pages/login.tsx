@@ -46,7 +46,7 @@ const Login = () => {
   }
   return (
     <div className={styles.title}>
-      <h1 className={styles.h1}>Login to NBAExplorer</h1>
+      <h1 className={styles.h1}>Login to NBA StatChat</h1>
 
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.small}>

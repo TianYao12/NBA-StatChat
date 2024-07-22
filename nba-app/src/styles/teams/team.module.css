@@ -54,6 +54,7 @@
     border: none;
     background-color: rgb(242, 210, 245);
     border-radius: 4px;
+    font-weight: 550;
   }
 
 .link {
@@ -80,4 +81,9 @@
 
 .link:hover .float {
   opacity: 1;
+}
+
+.playerLink:hover {
+  transition: all 200ms ease-in-out;
+  color: rgb(163, 79, 170);
 }

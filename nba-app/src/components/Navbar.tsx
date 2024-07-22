@@ -3,9 +3,7 @@ import { signOut } from "next-auth/react";
 import { FaSignOutAlt } from "react-icons/fa";
 
 function Navbar() {
-  function handleSignOut() {
-    signOut();
-  }
+
   return (
     <div className="outside">
       <div className="header">
@@ -29,7 +27,7 @@ function Navbar() {
           {/* <Link href="/" onClick={handleTranslation} className="translate">
             <strong>{t("translate")}</strong>
           </Link> */}
-          <button className="signout" onClick={handleSignOut}>
+          <button className="signout" onClick={() => signOut()}>
             <FaSignOutAlt  />
           </button>
       </div>
