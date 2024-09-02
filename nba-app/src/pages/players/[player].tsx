@@ -4,6 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import styles from "../../styles/player.module.css";
 import { Line } from "react-chartjs-2";
+import Image from "next/image";
 
 import {
   Chart as ChartJS,
@@ -269,9 +270,11 @@ export default function Player() {
       <div className={styles.main}>
         <div className={styles.top}>
           {pic && (
-            <img
+            <Image
               src={pic}
               alt="Player"
+              width={200}
+              height={150}
               style={{
                 width: "200px",
                 height: "150px",

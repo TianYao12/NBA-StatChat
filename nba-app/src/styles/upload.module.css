@@ -1,0 +1,54 @@
+.title {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.upload {
+    cursor: pointer;
+}
+
+.upload_label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+.upload_container {
+    display: flex;
+    gap: 15px;
+}
+
+.upload_container_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.submit_button {
+    width: 70px;
+    height: 30px;
+    margin-left: auto;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.files_section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+}
+
+.photos_grid {
+    display: grid;
+    grid-template-columns: repeat(10, 110px)
+}
+
+.videos_grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

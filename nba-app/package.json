@@ -10,6 +10,7 @@
     "embed": "node src/createEmbeddings.mjs"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.12.1",
     "@langchain/core": "^0.1.59",
     "@langchain/mongodb": "^0.0.1",
     "@langchain/openai": "^0.0.28",
@@ -26,6 +27,7 @@
     "encoding": "^0.1.13",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
+    "formidable": "^3.5.1",
     "formik": "^2.4.5",
     "i18n": "^0.15.1",
     "i18next": "^23.7.16",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/formidable": "^3.4.5",
     "prisma": "^5.1.1",
     "typescript": "^5.3.3"
   }

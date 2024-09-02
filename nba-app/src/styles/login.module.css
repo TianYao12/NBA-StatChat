@@ -18,7 +18,12 @@
     color:rgba(17, 0, 35, 0.912);
     border-radius: 5px;
     font-size: 20px;
-    background-color: rgba(226, 185, 242, 0.695)
+    background-color: rgba(171, 100, 199, 0.793);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(177, 95, 209, 0.695)
 }
 
 .form {
@@ -40,4 +45,14 @@
     margin-top:20px;
     font-weight: bold;
     color:rgba(17, 0, 35, 0.912);
+}
+
+.google_github_container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pointer {
+    cursor: pointer;
 }

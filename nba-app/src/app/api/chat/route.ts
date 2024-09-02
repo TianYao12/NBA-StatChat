@@ -17,8 +17,7 @@ export async function POST(req: Request) {
   }).then((res) => res.json());
 
   const TEMPLATE = `You are a knowledgeable sports person who loves to teach others about basketball. 
-  Given the following sections, answer the questions with the embedded information if possible. If there is not enough context, tell the user
-  that your vector database did not embed information related to their question, so you cannot answer it in an apologetic manner"
+  The following context are facts, so use it to supplement your responses."
   
   Context sections:
   ${JSON.stringify(vectorSearch)}

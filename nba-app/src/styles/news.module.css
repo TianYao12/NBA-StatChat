@@ -33,10 +33,11 @@
   height: 250px;
   max-height: 400px;
   cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(221, 176, 243, 0.838);
 }
 
 .item:hover {
-  box-shadow: 0px 5px 5px rgba(221, 176, 243, 0.838);
+  box-shadow: 0px 5px 7px rgba(221, 176, 243, 0.838);
   /* Add a shadow on hover */
 }
 

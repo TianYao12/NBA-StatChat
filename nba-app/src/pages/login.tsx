@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import loginValidate from "../../lib/validate";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image"
 
 interface Submission {
   email: string;
@@ -80,15 +81,12 @@ const Login = () => {
           Login
         </button>
       </form>
-
-      <button className={styles.button} onClick={handleGithubLogIn}>
-        Login Using Github
-      </button>
-      <button className={styles.button} onClick={handleGoogleSignIn}>
-        Login Using Google
-      </button>
+        <div className={styles.google_github_container}>
+          <Image className={styles.pointer} onClick={handleGithubLogIn} src="/github-icon.png" alt="GitHub" width={40} height={40} />
+          <Image className={styles.pointer} onClick={handleGoogleSignIn} src="/google-icon.png" alt="Google" width={40} height={40} />
+        </div>
       <p className={styles.end}>
-        No account? <Link href="/register">Register</Link>
+        No account? <Link href="/register" style={{textDecoration: "none", color: "purple"}}>Register</Link>
       </p>
     </div>
   );

@@ -1,11 +1,11 @@
 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 17px;
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 17px;
+}
   
-.outside{
+.outside {
   position:fixed;
   z-index:1000;
   top:0;
@@ -31,73 +31,73 @@ ul {
   padding:0;
 }
 
-  .main-nav {
-    display: flex;
-    flex:2;
-  }
-  
-  .main-nav a {
-    color: white;
-    font-size: 0.99em;
-    font-weight: bold;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  
-  .main-nav a:hover {
-    color: #f1dffd;
-  }
-  
-  .signin {
-    padding: 0;
-    margin: 0;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 50px;
-    position: relative;
-  }
+.main-nav {
+  display: flex;
+  flex:2;
+}
 
-  .translate {
-    position: absolute;
-    right: -200px;
-    text-decoration: none;
-    color: white;
-  }
+.main-nav a {
+  color: white;
+  font-size: 0.99em;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 
-  .translate:hover {
-    color: #f1dffd;
-  }
-  
-  .signin a {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .signin img {
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    z-index: 1000;
-  }
-  
-  .signin .message {
-    position: absolute;
-    right: 50px;
-    z-index: 2;
-    background-color: rgb(71, 71, 71);
-    color: white;
-    opacity: 0;
-    transition: 0.3s;
-    padding: 5px;
-    border-radius: 3px;
-  }
-  
-  .signin .message:hover {
-    opacity: 1;
-  }
+.main-nav a:hover {
+  color: #f1dffd;
+}
+
+.signin {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+  position: relative;
+}
+
+.translate {
+  position: absolute;
+  right: -200px;
+  text-decoration: none;
+  color: white;
+}
+
+.translate:hover {
+  color: #f1dffd;
+}
+
+.signin a {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.signin img {
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.signin .message {
+  position: absolute;
+  right: 50px;
+  z-index: 2;
+  background-color: rgb(71, 71, 71);
+  color: white;
+  opacity: 0;
+  transition: 0.3s;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.signin .message:hover {
+  opacity: 1;
+}
   
