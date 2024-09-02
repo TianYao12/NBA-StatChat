@@ -15,3 +15,8 @@ Users can ask basketball-related questions, and it provides responses based on c
 - **LangChain:** text splitting, integration with OpenAI, and other utilities
 - **OpenAI:** GPT-3.5 model for generating responses, OpenAIEmbeddings to turn text chunks to embeddings to store in MongoDB Atlas
 - **Vercel:** streaming capabilities 
+
+## Upload Hightlights
+Users can also upload photos or video highlights
+- **Google Cloud Storage:** used to make a bucket to store videos/photos
+- **Next.js** endpoint used to make signed URL for photo/video
