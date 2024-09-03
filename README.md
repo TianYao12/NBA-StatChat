@@ -20,3 +20,4 @@ Users can ask basketball-related questions, and it provides responses based on c
 Users can also upload photos or video highlights
 - **Google Cloud Storage:** used to make a bucket to store videos/photos
 - **Next.js** endpoint used to make signed URL for photo/video
+- **Google Cloud Function:** triggered when a file is uploaded to Google Cloud Storage bucket, and sends an email notifying me that a file has been uploaded
